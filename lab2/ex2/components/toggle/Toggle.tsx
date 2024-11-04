@@ -1,7 +1,5 @@
-import { useState } from "react";
-import { Button, Text, View } from "react-native";
-import { Switch } from "antd-mobile";
-
+import { Switch } from "@ant-design/react-native";
+import { Text, View } from "react-native";
 interface ToggleProps {
   text?: string;
   toggle?: boolean;
@@ -12,9 +10,9 @@ export default function Toggle({ text, toggle }: ToggleProps) {
     console.log(`switch to ${checked}`);
   };
   return (
-    <View className="flex items-center justify-between w-full flex-row px-10">
-      <Text className="">{text}</Text>
-      <Switch colorPrimary onChange={onChange}/>
+    <View className="flex items-center justify-between w-full flex-row">
+      <Text className="">{"  " + text}</Text>
+      <Switch color="#00d7c0" onChange={onChange} />
     </View>
   );
 }
