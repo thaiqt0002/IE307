@@ -1,10 +1,9 @@
-import { Tabs } from "expo-router";
 import { Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <View>
-      <Text>AAAA</Text>
+    <View className="w-full h-full flex justify-center items-center">
+      <Text>Favorite Screen</Text>
     </View>
   );
 }
