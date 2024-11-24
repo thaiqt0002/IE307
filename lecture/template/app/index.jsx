@@ -7,11 +7,19 @@ import StackedBarChartShow from "./StackedBarChart";
 import ProgressChartShow from "./ProgressChart";
 import PieChartShow from "./PieChart";
 import ContributionChartShow from "./ContributionChart";
+import PieCharPart2 from "./PieChart2";
 
 export default function Index() {
   return (
     <ScrollView>
       <View>
+        <Text className="text-center text-3xl font-bold">
+          Pie Chart
+          <PieCharPart2 />
+        </Text>
+        <Text className="text-center text-3xl font-bold">
+          ------------------------
+        </Text>
         <Text className="text-center text-3xl font-bold">
           Bezier Line Chart
         </Text>
@@ -38,10 +46,11 @@ export default function Index() {
         <PieChartShow />
       </View>
       <View>
-        <Text className="text-center text-3xl font-bold">Contribution Chart</Text>
+        <Text className="text-center text-3xl font-bold">
+          Contribution Chart
+        </Text>
         <ContributionChartShow />
       </View>
-      
     </ScrollView>
   );
 }

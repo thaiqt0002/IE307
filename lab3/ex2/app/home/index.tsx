@@ -1,24 +1,12 @@
-import {
-  addNote,
-  createTables,
-  deleteNote,
-  getNotes,
-  updateNote,
-} from "@/helper/db";
+import { useConfig } from "@/helper/config";
+import { deleteNote } from "@/helper/db";
 import { useNote } from "@/helper/note";
-import { useTheme } from "@/helper/config";
 import { useRouter } from "expo-router";
-import { useEffect, useState } from "react";
-import {
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/Entypo";
+
 export default function Index() {
-  const { isDarkTheme } = useTheme();
+  const { isDarkTheme, fontSize } = useConfig();
   const { notes, loadNotes } = useNote();
   const router = useRouter();
 
@@ -65,6 +53,7 @@ export default function Index() {
                 className={`font-bold text-xl ${
                   isDarkTheme ? "text-white" : "text-black"
                 }`}
+                style={{ fontSize }}
               >
                 {note.title}
               </Text>
@@ -72,6 +61,7 @@ export default function Index() {
                 className={`text-lg font-normal ${
                   isDarkTheme ? "text-white" : "text-black"
                 }`}
+                style={{ fontSize }}
               >
                 {note.content}
               </Text>

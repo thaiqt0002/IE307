@@ -1,16 +1,16 @@
 import { addNote, getNotes, updateNote } from "@/helper/db";
 import { useNote } from "@/helper/note";
-import { useTheme } from "@/helper/config";
+import { useConfig } from "@/helper/config";
 import { router } from "expo-router";
 import { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
-
+import Icon from "react-native-vector-icons/AntDesign";
 export default function AddNoteContext() {
   const { notes, loadNotes } = useNote();
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [selectedNote, setSelectedNote] = useState<any | null>(null);
-  const { isDarkTheme } = useTheme();
+  const { isDarkTheme } = useConfig();
 
   const handleAddNote = (newTitle: string, newContent: string) => {
     if (selectedNote) {
@@ -35,7 +35,7 @@ export default function AddNoteContext() {
   };
   return (
     <View
-      className={`h-full flex justify-center items-center ${
+      className={`h-full flex justify-center items-center gap-4 ${
         isDarkTheme ? "bg-black" : "bg-white"
       }`}
     >
@@ -48,8 +48,8 @@ export default function AddNoteContext() {
           Title:
         </Text>
         <TextInput
-          className={`w-32 overflow-x-auto ${
-            isDarkTheme ? "text-white" : "text-black"
+          className={`w-64 overflow-x-auto border p-2 ${
+            isDarkTheme ? "text-white border-white" : "text-black"
           }`}
           placeholder="Nhập tiêu đề"
           placeholderTextColor="gray"
@@ -68,10 +68,12 @@ export default function AddNoteContext() {
           Content:
         </Text>
         <TextInput
-          className={`w-32 overflow-x-auto ${
-            isDarkTheme ? "text-white " : "text-black"
+          className={`w-64 overflow-x-auto border p-2 ${
+            isDarkTheme ? "text-white border-white" : "text-black"
           }`}
           placeholder="Nhập nội dung"
+          multiline={true}
+          numberOfLines={4}
           placeholderTextColor="gray"
           value={content}
           onChangeText={(content) => {
@@ -79,12 +81,20 @@ export default function AddNoteContext() {
           }}
         />
       </View>
-      <TouchableOpacity
-        onPress={() => handleAddNote(title, content)}
-        className="bg-blue-400 p-4 rounded-xl"
-      >
-        <Text className="font-bold text-white">Add Note</Text>
-      </TouchableOpacity>
+      <View className='flex flex-row gap-4'>
+        <TouchableOpacity
+          onPress={() => navigateBack()}
+          className="bg-red-400 h-fit p-4 rounded-full"
+        >
+          <Icon name="close" color="white" size={16} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => handleAddNote(title, content)}
+          className="bg-green-400 p-4 rounded-full"
+        >
+          <Icon name="check" color="white" size={16} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

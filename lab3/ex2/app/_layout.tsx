@@ -2,18 +2,19 @@ import { Stack, Tabs, useRouter } from "expo-router";
 import { useEffect } from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 import "../global.css";
-import { ThemeProvider, useTheme } from "@/helper/config";
+import { ConfigProvider, useConfig } from "@/helper/config";
+
 
 export default function RootLayout() {
   return (
-    <ThemeProvider>
+    <ConfigProvider>
       <TabsWithTheme />
-    </ThemeProvider>
+    </ConfigProvider>
   );
 }
 
 function TabsWithTheme() {
-  const { isDarkTheme } = useTheme();
+  const { isDarkTheme } = useConfig();
   const router = useRouter();
 
   useEffect(() => {

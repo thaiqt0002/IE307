@@ -1,30 +1,33 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
-interface ThemeContextType {
+interface ConfigContextType {
   isDarkTheme: boolean;
   toggleTheme: () => void;
+  fontSize: number;
+  setFontSize: (size: number) => void;
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ConfigContext = createContext<ConfigContextType | undefined>(undefined);
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+export const ConfigProvider = ({ children }: { children: ReactNode }) => {
+  const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false);
+  const [fontSize, setFontSize] = useState<number>(16);
 
   const toggleTheme = () => {
     setIsDarkTheme(prevTheme => !prevTheme);
   };
 
   return (
-    <ThemeContext.Provider value={{ isDarkTheme, toggleTheme }}>
+    <ConfigContext.Provider value={{ isDarkTheme, toggleTheme, fontSize, setFontSize }}>
       {children}
-    </ThemeContext.Provider>
+    </ConfigContext.Provider>
   );
 };
 
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
+export const useConfig = () => {
+  const context = useContext(ConfigContext);
   if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
+    throw new Error('useConfig must be used within a ConfigProvider');
   }
   return context;
 };
