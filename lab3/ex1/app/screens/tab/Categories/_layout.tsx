@@ -15,13 +15,14 @@ export default function Categories() {
           header() {
             return (
               <View className='pt-10'>
-                <View className="py-4 pl-6"><Text className="text-2xl">Categories 1</Text></View>
+                <View className="py-4 pl-6"><Text className="text-2xl font-bold">Categories </Text></View>
                 <NavigationBar />
               </View>
             );
           },
         }}
       />
+
       <Stack.Screen
         name="categories2"
         options={{
@@ -30,7 +31,7 @@ export default function Categories() {
             header() {
               return (
                 <View className='pt-10'>
-                <View className="py-4 pl-6"><Text className="text-2xl">Categories 2</Text></View>
+                <View className="py-4 pl-6"><Text className="text-2xl font-bold">Categories </Text></View>
                 <NavigationBar />
               </View>
               );
@@ -45,7 +46,7 @@ export default function Categories() {
             header() {
               return (
                 <View className='pt-10'>
-                <View className="py-4 pl-6"><Text className="text-2xl">Categories 3</Text></View>
+                <View className="py-4 pl-6"><Text className="text-2xl font-bold">Categories </Text></View>
                 <NavigationBar />
               </View>
               );

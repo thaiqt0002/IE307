@@ -11,7 +11,7 @@ export default function Index() {
       }}
     >
       <Tabs.Screen
-        name="Home/index"
+        name="Home"
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
@@ -29,7 +29,7 @@ export default function Index() {
         }}
       />
       <Tabs.Screen
-        name="Favorite/index"
+        name="Favorite"
         options={{
           title: "Favorites",
           tabBarIcon: ({ color }) => (

@@ -19,7 +19,7 @@ export default function NavigationBar() {
         }`}
       >
         <Text className={`${pathname === CATEGORIES1 ? "text-blue-400" : ""}`}>
-          Categories 1
+          CATEGORIES1
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
@@ -29,7 +29,7 @@ export default function NavigationBar() {
         }`}
       >
         <Text className={`${pathname === CATEGORIES2 ? "text-blue-400" : ""}`}>
-          Categories 2
+          CATEGORIES2
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
@@ -39,7 +39,7 @@ export default function NavigationBar() {
         }`}
       >
         <Text className={`${pathname === CATEGORIES3 ? "text-blue-400" : ""}`}>
-          Categories 3
+          CATEGORIES3
         </Text>
       </TouchableOpacity>
     </View>
